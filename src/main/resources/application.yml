@@ -1,0 +1,24 @@
+spring:
+    main:
+      allow-bean-definition-overriding: true
+    datasource:
+        hikari:
+            connection-test-query: SELECT 1 FROM DUAL
+            minimum-idle: 1
+            maximum-pool-size: 5
+        driver-class-name: org.postgresql.Driver
+        jdbc-url: jdbc:postgresql://localhost:5432/oauth2
+        username: gateway
+        password: gateway
+        initialization-mode: always
+    jpa:
+      hibernate:
+        ddl-auto: none
+      properties:
+        hibernate:
+          jdbc:
+            lob:
+              non_contextual_creation: true
+# --- server
+server:
+  port: 8001
